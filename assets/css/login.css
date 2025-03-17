@@ -1,0 +1,431 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --text-color: #2b2d42;
+    --bg-color: #f8f9fa;
+    --error-color: #ef233c;
+    --success-color: #2ec4b6;
+    --font-family: 'Lexend', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    background: linear-gradient(135deg, #4361ee 0%, #3f37c9 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Update the container and panel styles */
+.container {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    letter-spacing: -0.02em;
+}
+
+.left-panel {
+    padding: 40px;
+    background: var(--bg-color);
+}
+
+.right-panel {
+    padding: 40px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-section img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.logo-section img:hover {
+    transform: scale(1.05);
+}
+
+.logo-section h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+/* Remove duplicate styles and update password field styles */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.input-group i {
+    position: absolute;
+    left: 14px;
+    top: 38px;
+    color: #6c757d;
+    z-index: 1;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px 16px;
+    padding-left: 40px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    font-family: var(--body-font);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+.input-group input:focus,
+.password-field input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1);
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--heading-font);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.toggle-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.toggle-form a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-family: var(--body-font);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.toggle-form a:hover {
+    color: var(--secondary-color);
+}
+
+.error, .success {
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.error {
+    background: rgba(239, 35, 60, 0.1);
+    color: var(--error-color);
+}
+
+.success {
+    background: rgba(46, 196, 182, 0.1);
+    color: var(--success-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile logo styles - place this before the media queries */
+.mobile-logo {
+    display: none;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.mobile-logo img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.mobile-logo h2 {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mobile-logo p {
+    font-family: 'Lexend', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 15px;
+        justify-content: flex-start;
+        padding-top: 40px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .right-panel {
+        display: none;
+    }
+
+    .left-panel {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .input-group input,
+    .input-group select {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+        padding-left: 36px;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .logo-section h2 {
+        font-size: 1.8rem;
+        letter-spacing: -0.02em;
+    }
+    
+    .input-group label,
+    .input-group input,
+    .input-group select {
+        letter-spacing: 0;
+    }
+
+    /* Show mobile logo */
+    .mobile-logo {
+        display: block;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .mobile-logo h2 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .mobile-logo p {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        border-radius: 20px;
+    }
+
+    .left-panel {
+        padding: 20px;
+    }
+
+    .logo-section img {
+        width: 80px;
+    }
+
+    .input-group {
+        margin-bottom: 16px;
+    }
+
+    .input-group label {
+        font-size: 0.8rem;
+    }
+}
+
+/* Add new styles for form visibility */
+#registerForm {
+    display: none;
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease;
+}
+
+.right-panel h2 {
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.right-panel p {
+    font-family: var(--body-font);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+/* Password input styling - updated */
+.password-input-container {
+    position: relative;
+    width: 100%;
+    display: block; /* Change from flex to block */
+}
+
+.password-input-container input {
+    width: 100%;
+    padding: 12px 16px;
+    padding-left: 40px; /* Space for left icon */
+    padding-right: 40px; /* Space for right icon */
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.input-icon-left {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    pointer-events: none; /* Make sure clicking passes through */
+    z-index: 2;
+    font-size: 1rem; /* Set specific size */
+}
+
+.password-toggle {
+    position: absolute;
+    right: 14px; /* Fixed position at far right */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    z-index: 2;
+    background: none;
+    border: none;
+    padding: 0; /* Remove any padding */
+    margin: 0; /* Remove any margin */
+    font-size: 1rem; /* Set specific size */
+    display: block;
+    width: auto;
+    height: auto;
+    line-height: 1; /* Fix vertical alignment */
+}
+
+/* Focus state for password input */
+.password-input-container input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1);
+}

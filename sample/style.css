@@ -1,0 +1,1222 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #2c3e50;
+    --background-color: #f5f6fa;
+    --card-background: #ffffff;
+    --text-color: #2c3e50;
+    --border-radius: 10px;
+    --transition: all 0.3s ease;
+}
+
+.dark-mode {
+    --primary-color: #3498db;
+    --secondary-color: #ecf0f1;
+    --background-color: #2c3e50;
+    --card-background: #34495e;
+    --text-color: #ecf0f1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+header {
+    background: var(--card-background);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 120px; /* Limit logo container width */
+}
+
+.peso-logo, .montalban-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.peso-logo:hover, .montalban-logo:hover {
+    transform: scale(1.05);
+}
+
+.title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.title-section h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.title-section .subtitle {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    opacity: 0.9;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav a:hover, nav a.active {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+nav a i {
+    font-size: 0.9rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#darkModeToggle {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    background: var(--background-color);
+    transform: rotate(15deg);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .header-container {
+        padding: 0 1rem;
+    }
+    
+    .title-section h1 {
+        font-size: 1.2rem;
+    }
+    
+    .title-section .subtitle {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header-container {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .logo-section {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .logos {
+        max-width: 80px;
+    }
+
+    .peso-logo, .montalban-logo {
+        height: 30px;
+    }
+
+    .title-section {
+        text-align: left;
+    }
+
+    .title-section h1 {
+        font-size: 1rem;
+    }
+
+    .title-section .subtitle {
+        font-size: 0.7rem;
+    }
+
+    /* Updated navigation styles */
+    nav {
+        position: relative; /* Changed from fixed */
+        width: 100%;
+        background: var(--card-background);
+        padding: 0.5rem;
+        border-radius: var(--border-radius);
+        margin-top: 0.5rem;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        white-space: nowrap;
+    }
+
+    nav a i {
+        font-size: 0.9rem;
+    }
+
+    .header-container {
+        display: grid;
+        grid-template-areas:
+            "logo logo"
+            "nav timer";
+        align-items: center;
+    }
+
+    .logo-section {
+        grid-area: logo;
+        width: 100%;
+    }
+
+    nav {
+        grid-area: nav;
+    }
+
+    .user-info {
+        grid-area: timer;
+        justify-self: end;
+    }
+}
+
+/* Add styles for extra small screens */
+@media screen and (max-width: 480px) {
+    .title-section h1 {
+        font-size: 0.9rem;
+    }
+
+    nav a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    nav a i {
+        font-size: 0.8rem;
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo i {
+    font-size: 2rem;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    margin-right: 1rem;
+}
+
+.peso-logo, .montalban-logo {
+    object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
+
+    .logo img {
+        height: 30px;
+    }
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--card-background);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+nav a:hover, nav a.active {
+    background: var(--primary-color);
+}
+
+.card {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.primary-btn, .secondary-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.secondary-btn {
+    background: var(--card-background);
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+}
+
+.primary-btn:hover, .secondary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.exam-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--background-color);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+#progressFill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.question {
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.3s ease;
+    padding: 1.5rem;
+}
+
+.options {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    animation: slideUp 0.3s ease;
+}
+
+.option {
+    background: var(--card-background);
+    padding: 1.2rem;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.option:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.option.selected:before {
+    background: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--card-background),
+                0 0 0 4px var(--primary-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.option:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.option.selected {
+    background: var(--primary-color);
+    color: white;
+}
+
+.exam-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+#timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#chartContainer {
+    height: 300px;
+    margin: 2rem 0;
+}
+
+.essay-container {
+    margin-top: 1rem;
+}
+
+.essay-input {
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    background: var(--card-background);
+    color: var(--text-color);
+    user-select: none; /* Prevents text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.essay-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.essay-input::selection {
+    background: transparent;
+}
+
+.essay-input::-moz-selection {
+    background: transparent;
+}
+
+.word-count {
+    margin-top: 0.5rem;
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+.essay-input:disabled {
+    background: var(--background-color);
+    cursor: not-allowed;
+}
+
+.score-details {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.pass-message {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 2px solid #4CAF50;
+    border-radius: var(--border-radius);
+}
+
+.fail-message {
+    color: #F44336;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 2px solid #F44336;
+    border-radius: var(--border-radius);
+}
+
+.essay-review {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.answer-text {
+    background: var(--background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-top: 0.5rem;
+    white-space: pre-wrap;
+}
+
+.score-summary {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+}
+
+.score-circle.animate {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.score-circle.pass {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.score-circle.fail {
+    background: linear-gradient(135deg, #F44336, #d32f2f);
+}
+
+.percentage {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.score-text {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.score-details {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.5s ease;
+}
+
+.score-details.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.score-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.score-status {
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
+
+.score-status.pass {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.score-status.fail {
+    background: rgba(244, 67, 54, 0.1);
+    color: #F44336;
+}
+
+.essay-review {
+    margin-top: 3rem;
+}
+
+.essay-card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.essay-question {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.essay-answer {
+    background: var(--background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+}
+
+.word-count-summary {
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+.results-container {
+    animation: fadeIn 0.5s ease;
+    padding: 1rem;
+}
+
+.score-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    animation: scaleIn 0.5s ease;
+}
+
+.score-circle.pass {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.score-circle.fail {
+    background: linear-gradient(135deg, #F44336, #d32f2f);
+}
+
+.percentage {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.score-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.score-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.score-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+.result-status {
+    margin-top: auto;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    text-align: center;
+}
+
+.result-status.pass {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.result-status.fail {
+    background: rgba(244, 67, 54, 0.1);
+    color: #F44336;
+}
+
+.essay-section {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.essay-box {
+    margin-top: 1rem;
+}
+
+.essay-prompt {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.essay-response {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+    min-height: 100px;
+}
+
+.word-count {
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.word-count.valid {
+    color: #4CAF50;
+}
+
+.word-count.invalid {
+    color: #F44336;
+}
+
+.word-count-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.word-count-status.valid {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.word-count-status.invalid {
+    background: rgba(244, 67, 54, 0.1);
+    color: #F44336;
+}
+
+@keyframes scaleIn {
+    from { 
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .score-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .score-circle {
+        margin: 0 auto;
+    }
+    
+    .score-row {
+        justify-content: center;
+    }
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.results-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.score-summary {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.score-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.score-circle.pass {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.score-circle.fail {
+    background: linear-gradient(135deg, #F44336, #d32f2f);
+    box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.score-value {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+.score-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+.info-item i {
+    width: 24px;
+    color: var(--primary-color);
+}
+
+.essay-review {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.essay-content {
+    margin-top: 1.5rem;
+}
+
+.essay-question {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.essay-answer {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+    min-height: 100px;
+}
+
+.no-answer {
+    color: #666;
+    font-style: italic;
+}
+
+.word-count-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.word-count-badge.pass {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.word-count-badge.fail {
+    background: rgba(244, 67, 54, 0.1);
+    color: #F44336;
+}
+
+.result-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .score-summary {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .score-circle {
+        margin: 0 auto;
+        width: 150px;
+        height: 150px;
+    }
+
+    .score-info {
+        align-items: center;
+    }
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .result-actions button {
+        width: 100%;
+    }
+}
+
+@media print {
+    .result-actions {
+        display: none;
+    }
+}
+
+.score-permanent {
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.score-circle {
+    transition: none !important;
+}
+
+/* Update header and navigation styles */
+@media screen and (max-width: 768px) {
+    .header-container {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "nav info"
+            "logo logo";
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .logo-section {
+        grid-area: logo;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .logos {
+        max-width: 80px;
+    }
+
+    .peso-logo, .montalban-logo {
+        height: 30px;
+    }
+
+    .title-section {
+        text-align: center;
+    }
+
+    .title-section h1 {
+        font-size: 1rem;
+    }
+
+    .title-section .subtitle {
+        font-size: 0.7rem;
+    }
+
+    /* Updated navigation styles */
+    nav {
+        grid-area: nav;
+        background: transparent;
+        padding: 0;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 0.3rem;
+    }
+
+    nav a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+
+    nav a i {
+        font-size: 0.8rem;
+        margin-right: 0.2rem;
+    }
+
+    .user-info {
+        grid-area: info;
+        gap: 0.5rem;
+    }
+
+    #darkModeToggle {
+        padding: 0.3rem;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+    .header-container {
+        padding: 0.3rem;
+    }
+
+    nav a {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    nav a i {
+        font-size: 0.75rem;
+    }
+}
+
+/* Add to existing CSS */
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 1rem;
+}
+
+.user-name {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.user-type {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+}
+
+.user-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.logout-btn {
+    color: var(--text-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: var(--background-color);
+    color: #F44336;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+}
+
+.modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-content {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.modal.hidden .modal-content {
+    transform: translateY(-20px);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.hidden {
+    display: none;
+}

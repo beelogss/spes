@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPES Exam System - Montalban</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logos">
+                    <img src="peso.png" alt="Peso Logo" class="peso-logo">
+                    <img src="bagong_montalban.png" alt="Montalban Logo" class="montalban-logo">
+                </div>
+                <div class="title-section">
+                    <h1>Special Program for Employment of Students (SPES) Exam</h1>
+                    <p class="subtitle">Municipality of Rodriguez (Montalban)</p>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" id="examLink"><i class="fas fa-pencil-alt"></i> Take Exam</a></li>
+                    <li><a href="#" id="resultsLink"><i class="fas fa-chart-bar"></i> Results</a></li>
+                </ul>
+            </nav>
+            
+            <div class="user-info">
+                <span id="timer" class="hidden">Time: <span id="time">00:00</span></span>
+                <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="welcomeSection" class="section card">
+            <h2>Welcome to Modern Exam System</h2>
+            <p>Ready to test your knowledge?</p>
+            <div class="exam-info">
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Time Limit: 10 minutes</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Total Questions: <span id="totalQuestions">0</span></span>
+                </div>
+            </div>
+            <button id="startExamBtn" class="primary-btn">
+                <i class="fas fa-play"></i> Start Exam
+            </button>
+        </div>
+
+        <div id="examSection" class="section hidden">
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+            <div id="questionContainer" class="card"></div>
+            <div class="exam-controls">
+                <button id="prevQuestion" class="secondary-btn"><i class="fas fa-arrow-left"></i> Previous</button>
+                <button id="nextQuestion" class="secondary-btn">Next <i class="fas fa-arrow-right"></i></button>
+                <button id="submitExam" class="primary-btn"><i class="fas fa-check"></i> Submit Exam</button>
+            </div>
+        </div>
+
+        <div id="resultsSection" class="section hidden">
+            <div class="card">
+                <h2>Your Results</h2>
+                <div id="scoreContainer"></div>
+                <div id="chartContainer"></div>
+                <button id="retakeExam" class="primary-btn">
+                    <i class="fas fa-redo"></i> Retake Exam
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
